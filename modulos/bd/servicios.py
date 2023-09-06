@@ -2,14 +2,14 @@ import pymysql
 from typing import List
 
 
-class Servicios_BD():
+class Servicios_BD:
     
     def conexion_bd(self) -> pymysql.Connection:
         return pymysql.connect(
             host='localhost',
             port=3306,
             user='root',
-            password='123456',
+            password='',
             database='tienda',
             cursorclass=pymysql.cursors.DictCursor
 
@@ -28,6 +28,6 @@ class Servicios_BD():
             connection = self.conexion_bd()
             with connection.cursor() as cursor:
                 cursor.execute(sql)
-            return cursor.fetchall()
+                return cursor.fetchall()
         
     
