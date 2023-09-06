@@ -1,10 +1,12 @@
 from modulos.bd.servicios import Servicios_BD
 from modulos.base.modelo import ModeloBase
+from modulos.base.servicios import ServiciosBase
 
 #cli_services=CLIservices()
 #cliente_n1=cli_services.prompt_cliente()  
 base_datos=Servicios_BD()
 conexion=base_datos.conexion_bd()
+Servicios_Base=ServiciosBase()
 
 
 """
@@ -42,9 +44,13 @@ print(results)#Lista de diccionarios
 #row to sql fila a string sql
 #row to item fila a objeto 
 
+#TypeError: Can't instantiate abstract class ServiciosBase with abstract methods fila_a_item, fila_a_sql, item_a_fila
+class ejemplo(ModeloBase):
+    nombre:str=None
+    apellido:str=None
 
+instancia=ejemplo()
+instancia.nombre="Lore"
+instancia.apellido="Ope"
 
-
-
-
-  
+objeto_1=Servicios_Base.item_a_fila(instancia)
