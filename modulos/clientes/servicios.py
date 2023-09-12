@@ -1,13 +1,15 @@
-from ..base.modelo import ModeloBase
+from base.servicios import ServiciosBase
+from modulos.base.modelo import ModeloBase
 
-class Item(ModeloBase):
-    id_producto:int=None
-    id_proveedor:int=None
-    id_orden_compra:int=None
-    cantidad:int=None
-    precio_unitario:float=None
-
-
+class ClienteServicios(ServiciosBase):
+    def __init__(self) -> None:
+        super().__init__()
+    
+    def item_a_fila(self, item: ModeloBase) -> dict:
+        return super().item_a_fila(item)
+    
+    def fila_a_item(self, fila: dict) -> ModeloBase:
+        return super().fila_a_item(fila)
 
 
     

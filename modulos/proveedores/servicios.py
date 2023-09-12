@@ -1,21 +1,12 @@
-from ..base.servicios import ServiciosBase
-from .modelo import Proveedor
+from base.servicios import ServiciosBase
+from modulos.base.modelo import ModeloBase
 
-class ServiciosProveedores(ServiciosBase):
-
-    def item_a_fila(self, item:Proveedor)->dict:
-        data={}
-        return data
+class ProveedorServicios(ServiciosBase):
+    def __init__(self) -> None:
+        super().__init__()
     
-
-    def fila_a_item(self, fila:dict)->Proveedor:
-         item=Proveedor()
-         item.id=fila['id']
-         return item
-         
-   
-    def fila_a_sql(self,fila:dict):
-         sql=''
-         for key in fila:
-             sql+=f"{key}={fila[key]},"
-         return sql.rstrip(",")
+    def item_a_fila(self, item: ModeloBase) -> dict:
+        return super().item_a_fila(item)
+    
+    def fila_a_item(self, fila: dict) -> ModeloBase:
+        return super().fila_a_item(fila)
